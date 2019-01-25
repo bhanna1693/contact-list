@@ -109,7 +109,7 @@ app.get("/api/contacts/:id", function (req, res) {
 app.put("/api/contacts/:id", function (req, res) {
     var query = { _id: new ObjectID(req.params.id) };
     var contactInfo = req.body;
-    delete contactInfo._id;
+    // delete contactInfo._id;
     var updateDoc = { $set: contactInfo }
 
     db.collection(CLASS_COLLECTION).updateOne(query, updateDoc, function (err, doc) {
