@@ -111,8 +111,9 @@ app.put("/api/contacts/:id", function (req, res) {
     var contactInfo = req.body;
     delete contactInfo._id;
     var updateDoc = { $set: contactInfo }
+    console.log(updateDoc);
 
-    db.collection(CLASS_COLLECTION).updateOne(query, updateDoc, function (err, doc) {
+    db.collection(CONTACTS_COLLECTION).updateOne(query, updateDoc, function (err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to update contact");
         } else {
